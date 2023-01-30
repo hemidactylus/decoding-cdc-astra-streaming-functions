@@ -276,9 +276,6 @@ class Deschemaer(Function):
         ...
 ```
 
-**TODO:** move the `createAvroReader` calls in the class constructor to avoid
-the ugly global variable trick. No problems expected with that.
-
 For the whole code and the ready-made zipfile, look into the `function` directory.
 
 To set up the function one needs to specify the source and destination topics

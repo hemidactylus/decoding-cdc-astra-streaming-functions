@@ -91,13 +91,13 @@ def cdcMessageToDictPF(pk, body, keyReader, valueReader):
     }
 
 
-# Global variables
-keyReader = createAvroReader(keySchemaDict)
-valueReader = createAvroReader(valueSchemaDict)
-
-
 class Deschemaer(Function):
+
+    def __init__(self):
+        self.keyReader = createAvroReader(keySchemaDict)
+        self.valueReader = createAvroReader(valueSchemaDict)
+
     def process(self, msgBody, context):
         msgPK = context.get_partition_key()
-        msgDict = cdcMessageToDictPF(msgPK, msgBody, keyReader, valueReader)
+        msgDict = cdcMessageToDictPF(msgPK, msgBody, self.keyReader, self.valueReader)
         return json.dumps(msgDict)
