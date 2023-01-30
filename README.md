@@ -6,10 +6,10 @@
 > to an Astra Streaming topic and we want to decode the content
 > of each event to have it e.g. as a plain JSON.
 
-We want to do it *in Python**.
+We want to do it **in Python**.
 
 We want to be able to do it both in a standalone consumer Python script
-_and within a Streaming Function_.
+and **within a Streaming Function**.
 
 ### Breakdown
 
