@@ -284,9 +284,13 @@ when uploading the zip file and that's it.
 ### Layers of encoding
 
 There's a subtle difference with the stand-alone script:
-the message body is _not_ `bytes` this time, rather it is a string
-and as such it must be additionally `.encode()`d before the
+the message body is _not always_ `bytes` this time, rather it *may sometimes be* a string
+and as such it must be (type-checked and if necessary) additionally `.encode()`d before the
 rest of the transformations.
+
+> It seems that the body is passed as string when the input text values in the `CQL INSERT` have
+> length below 64 characters and becomes a `bytes` if the inserted texts are longer. `¯\_(ツ)_/¯`
+> (thank you, Jack Byrne, for spotting and reporting this!)
 
 In short:
 
